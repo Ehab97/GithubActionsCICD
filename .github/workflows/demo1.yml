@@ -2,8 +2,16 @@ name: Events Demo 1
 on: 
   pull_request:
     types: [opened]
+    branches:
+      - "main"
+      - "dev-*" # dev-new or dev-is-new and so on
+      - "feat/**" # feat/new feat/new/button
   workflow_dispatch:
-       
+  push:
+     branches:
+       - "main"
+     paths-ignore:
+       - ".github/workflows/*"       
 jobs:
   deploy:
     runs-on: ubuntu-latest
