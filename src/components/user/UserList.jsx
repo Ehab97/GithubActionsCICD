@@ -9,7 +9,7 @@ const UserList = ({ users }) => {
    ));
    return (
       <div className="user-list-container">
-         <h2>User List</h2>
+         <h3>User List</h3>
          <table className="user-table">
             <thead>
                <tr>
