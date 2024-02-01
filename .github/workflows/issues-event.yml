@@ -1,0 +1,19 @@
+name: Issues 
+on:
+  issues:
+    types: [opened,edited,deleted]
+jobs:
+  process-issues:
+     runs-on: ubuntu-latest
+     steps:
+      - name: Get Issue Details
+        run: |
+          issue_number=$(echo "${{ github.event.issue.number }}")
+          repo_owner=$(echo "${{ github.event.repository.owner.login }}")
+          repo_name=$(echo "${{ github.event.repository.name }}")
+          api_url="https://api.github.com/repos/${repo_owner}/${repo_name}/issues/${issue_number}"
+          issue_info=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" $api_url)
+          echo "::set-output name=issue_info::$issue_info"
+      - name: Display Issue Information
+        run: |
+          echo "Issue Information: ${{ steps.get_issue.outputs.issue_info }}"    
