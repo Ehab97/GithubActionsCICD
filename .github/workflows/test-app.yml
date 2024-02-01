@@ -1,0 +1,46 @@
+name: Test App
+on: push
+jobs:
+  Lint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get code
+      uses: actions/checkout@v4
+    - name: Install Nodejs 
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+    - name: install Dependencies
+      run: npm install
+    - name: run the linter
+      run: npm run lint      
+  Test:
+    needs: Lint
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get code
+      uses: actions/checkout@v4
+    - name: Install Nodejs 
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+    - name: install Dependencies
+      run: npm install
+    - name: run the test
+      run: npm run test      
+  Deploy:
+    needs: [Lint,Test]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get code
+      uses: actions/checkout@v4
+    - name: Install Nodejs 
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+    - name: install Dependencies
+      run: npm install
+    - name: Build Project
+      run: npm run build
+    - name: Deploy
+      run: echo "Deploying..."       
