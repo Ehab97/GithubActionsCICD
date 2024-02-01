@@ -40,7 +40,7 @@ test("render email and name for each user", () => {
       const email = screen.getByRole("cell", {
          name: user.email,
       });
-      expect(name).not.toBeInTheDocument();
+      expect(name).toBeInTheDocument();
       expect(email).toBeInTheDocument();
    }
    //assertion make sure Component what it's suppose to doing
