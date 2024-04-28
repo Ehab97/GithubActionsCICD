@@ -1,4 +1,4 @@
-name: Demo Artifacts
+name: Env App Section 6
 on:
   push:
     branches:
