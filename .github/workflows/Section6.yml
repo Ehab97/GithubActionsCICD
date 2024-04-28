@@ -2,8 +2,9 @@ name: Demo Artifacts
 on:
   push:
     branches:
-      - main
-      - dev
+      - "main"
+      - "dev-*" # dev-new or dev-is-new and so on
+      - "feat/**" # feat/new feat/new/button
 env:
   VITE_BASE_APP_NAME: GITHUB_CI_CD_COURSE
 jobs:
