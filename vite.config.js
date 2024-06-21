@@ -10,6 +10,6 @@ export default defineConfig({
     // setupFiles: ["src/setupTest.js"],
     setupFiles: "./src/setupTest.js",
     reporters: ["json"],
-    outputFile: "test.json",
+    outputFile: "./test.json",
   },
 });
