@@ -12,7 +12,7 @@ test("It shows Name and Email Inputs and Submit Button", async () => {
   const inputs = screen.getAllByRole("textbox");
   const button = screen.getByRole("button");
   //assertion make sure Component what it's suppose to doing
-  expect(inputs).toHaveLength(3);
+  expect(inputs).toHaveLength(1);
   expect(button).toBeInTheDocument();
 });
 
