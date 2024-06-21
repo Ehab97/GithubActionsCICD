@@ -73,4 +73,4 @@ jobs:
       - name: output file name
         run: echo "${{ needs.build.outputs.script-file }}"
       - name: Deploy
-        run: echo "Deploying... App Title =>,$VITE_BASE_APP_NAME , or , getting${{env.VITE_BASE_APP_NAME}}"
+        run: echo "Deploying... App Title =>,$VITE_BASE_APP_NAME , or , ${{env.VITE_BASE_APP_NAME}}"
