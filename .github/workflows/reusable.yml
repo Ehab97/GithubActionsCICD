@@ -1,0 +1,12 @@
+name: Reusable Deploy
+on:
+  push:
+    branches:
+      - main
+  workflow_call:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: output info
+        run: echo "deply sucess"
