@@ -1,4 +1,4 @@
-name: Website Deployment SECTION 7 continue
+name: Website Deployment SECTION 7
 on:
   push:
     branches:
@@ -37,10 +37,10 @@ jobs:
         if: ${{ steps.cash.outputs.cash-hit != 'true' }}
         run: npm install
       - name: Test code
-        continue-on-error: true
         id: run-tests
         run: npm run test
       - name: Upload test report
+        if: ${{ failure() && steps.run-tests.outcome == 'failure' }}
         uses: actions/upload-artifact@v4
         with:
           name: test-report
